@@ -2,11 +2,9 @@ services:
   copilot-proxy:
     build: .
     ports:
-      - "8779:8779"
+      - "${PORT:-8779}:8000"
     environment:
-      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-http://host.docker.internal:8000}
-      - DROP_FIELDS=${DROP_FIELDS:-stream_options,parallel_tool_calls,service_tier}
-      - DEBUG=${DEBUG:-true}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped

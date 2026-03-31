@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 8779
+EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8779"]
+CMD ["python", "app.py", "--port", "8000"]
